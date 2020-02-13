@@ -1,6 +1,6 @@
 # promise.hash
 
-Like `Promise.all`, but rather then consuming an array it takes an object as input.
+Inspired by `Promise.all` but rather then consuming an array it takes an object as input.
 
 ## Install
 
