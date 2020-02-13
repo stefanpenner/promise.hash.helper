@@ -1,0 +1,28 @@
+{
+  "name": "promise.hash",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.2.9",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.1",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "source-map-support": "^0.5.16",
+    "typescript": "^3.7.5"
+  },
+  "files": [
+    "index.js",
+    "index.js.map"
+  ],
+  "scripts": {
+    "build": "tsc -b .",
+    "watch": "tsc --watch .",
+    "clean": "tsc -b --clean .",
+    "test": "yarn build && yarn test:js",
+    "test:debug": "yarn build && yarn test:js:debug",
+    "test:js": "mocha --require source-map-support/register  tests/*-test.js",
+    "test:js:debug": "mocha --require source-map-support/register  debug tests/*-test.js"
+  }
+}
