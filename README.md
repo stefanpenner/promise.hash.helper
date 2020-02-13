@@ -3,11 +3,20 @@
 Like `Promise.all`, but rather then consuming an array it takes an object as input.
 
 ## Install
+
+```sh
+yarn add promise.hash
 ```
-yarn add promise.add
+
+or
+
+```sh
+npm install --save promise.hash
 ```
+
 ## Usage
 
+```js
 const hash = require('promise.hash');
 
 let promises = {
