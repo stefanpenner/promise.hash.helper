@@ -27,7 +27,7 @@ let promises = {
   notAPromise: 4
 };
 
-hash(promises).then(object =>{
+hash(promises).then(object => {
   // object here is an object that looks like:
   // {
   //   myPromise: 1,
