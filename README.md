@@ -1,7 +1,7 @@
 # promise.hash.helper
 ![](https://github.com/stefanpenner/promise.hash.helper/workflows/CI/badge.svg)
 
-Inspired by `Promise.all` but rather then consuming an array it takes an object as input.
+Inspired by `Promise.all` but rather then consuming an array it takes an object as input, and "resolves" that objects values.
 
 ## Install
 
