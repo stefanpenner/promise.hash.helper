@@ -85,7 +85,7 @@
   @return {Promise} promise that is fulfilled when all properties of `promises`
   have been fulfilled, or rejected if any of them become rejected.
 */
-export default async function hash<T>(object: {[K in keyof T]: T[K] | PromiseLike<T[K]>}) {
+export = async function hash<T>(object: {[K in keyof T]: T[K] | PromiseLike<T[K]>}) {
   const keys = Object.keys(object) as (keyof T)[];
   const values = new Array(keys.length);
 

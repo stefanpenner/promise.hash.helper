@@ -1,4 +1,4 @@
-import hash from '../';
+import hash = require('../');
 import chai = require('chai');
 
 const { expect } = chai;
