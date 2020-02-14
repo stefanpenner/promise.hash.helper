@@ -1,4 +1,5 @@
 # promise.hash
+![](https://github.com/actions/stefanpenner/promise.hash/workflows/.github/workflows/ci.yml/badge.svg)
 
 Inspired by `Promise.all` but rather then consuming an array it takes an object as input.
 
