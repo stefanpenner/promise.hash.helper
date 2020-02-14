@@ -1,3 +1,5 @@
+type Fulfilled<T> = T extends Promise<infer R> ? R : T;
+
 /**
   `hash` is similar to `all`, but takes an object instead of an array
   for its `promises` argument.
@@ -85,7 +87,7 @@
   @return {Promise} promise that is fulfilled when all properties of `promises`
   have been fulfilled, or rejected if any of them become rejected.
 */
-export = async function hash<T>(object: {[K in keyof T]: T[K] | PromiseLike<T[K]>}) {
+export = async function hash<T extends {}>(object: T) {
   const keys = Object.keys(object) as (keyof T)[];
   const values = new Array(keys.length);
 
@@ -94,7 +96,9 @@ export = async function hash<T>(object: {[K in keyof T]: T[K] | PromiseLike<T[K]
   }
 
   const resolvedValues = await Promise.all(values);
-  const result = {} as { [K in keyof T]: T[K] };
+  const result = {} as {
+    [K in keyof T]: Fulfilled<T[K]>
+  };
 
   for (let i = 0; i < keys.length; i++) {
     result[keys[i]] = resolvedValues[i];
