@@ -23,11 +23,11 @@
   },
   "scripts": {
     "prepublishOnly": "yarn build",
-    "build": "tsc -b ",
+    "prepare": "tsc -b ",
     "pretest": "tsc -P tests",
     "watch": "tsc --watch .",
     "clean": "tsc -b --clean .",
-    "test": "yarn build && yarn test:js && yarn test:types",
+    "test": "yarn prepare && yarn test:js && yarn test:types",
     "test:debug": "yarn build && yarn test:js:debug",
     "test:js": "mocha --require source-map-support/register  tests/*-test.js",
     "test:types": "dtslint type-tests",
