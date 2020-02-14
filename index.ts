@@ -87,7 +87,7 @@ type Fulfilled<T> = T extends Promise<infer R> ? R : T;
   @return {Promise} promise that is fulfilled when all properties of `promises`
   have been fulfilled, or rejected if any of them become rejected.
 */
-export = async function hash<T extends {}>(object: T) {
+export = async function hash<T extends object>(object: T) {
   const keys = Object.keys(object) as (keyof T)[];
   const values = new Array(keys.length);
 
