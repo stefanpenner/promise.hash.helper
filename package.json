@@ -22,8 +22,7 @@
     "node": "10.* || >= 12.*"
   },
   "scripts": {
-    "prepublishOnly": "yarn build",
-    "prepare": "tsc -b ",
+    "prepare": "tsc -b",
     "pretest": "tsc -P tests",
     "watch": "tsc --watch .",
     "clean": "tsc -b --clean .",
