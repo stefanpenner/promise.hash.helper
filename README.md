@@ -1,4 +1,4 @@
-# promise.hash
+# promise.hash.helper
 ![](https://github.com/actions/stefanpenner/promise.hash/workflows/.github/workflows/ci.yml/badge.svg)
 
 Inspired by `Promise.all` but rather then consuming an array it takes an object as input.
@@ -6,19 +6,19 @@ Inspired by `Promise.all` but rather then consuming an array it takes an object 
 ## Install
 
 ```sh
-yarn add promise.hash
+yarn add promise.hash.helper
 ```
 
 or
 
 ```sh
-npm install --save promise.hash
+npm install --save promise.hash.helper
 ```
 
 ## Usage
 
 ```js
-const hash = require('promise.hash');
+const hash = require('promise.hash.helper');
 
 let promises = {
   myPromise: resolve(1),

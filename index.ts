@@ -10,7 +10,7 @@
   Example:
 
   ```javascript
-  const hash = require('promise.hash');
+  const hash = require('promise.hash.helper');
 
   let promises = {
     myPromise: resolve(1),
@@ -35,7 +35,7 @@
   Example:
 
   ```javascript
-  const hash = require('promise.hash');
+  const hash = require('promise.hash.helper');
 
   let promises = {
     myPromise: resolve(1),
@@ -56,7 +56,7 @@
   Example:
 
   ```javascript
-  const hash = require('promise.hash');
+  const hash = require('promise.hash.helper');
 
   function MyConstructor(){
     this.example = resolve('Example');
