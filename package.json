@@ -6,8 +6,9 @@
   "devDependencies": {
     "@types/chai": "^4.2.9",
     "@types/mocha": "^7.0.1",
-    "@types/node": "^13.7.1",
+    "@types/node": "^10",
     "chai": "^4.2.0",
+    "dtslint": "^2.0.6",
     "mocha": "^7.0.1",
     "source-map-support": "^0.5.16",
     "typescript": "^3.7.5"
@@ -17,13 +18,23 @@
     "index.js",
     "index.js.map"
   ],
+  "engines": {
+    "node": "10.* || >= 12.*"
+  },
   "scripts": {
-    "build": "tsc -b .",
+    "prepublishOnly": "yarn build",
+    "build": "tsc -b ",
+    "pretest": "tsc -P tests",
     "watch": "tsc --watch .",
     "clean": "tsc -b --clean .",
-    "test": "yarn build && yarn test:js",
+    "test": "yarn build && yarn test:js && yarn test:types",
     "test:debug": "yarn build && yarn test:js:debug",
     "test:js": "mocha --require source-map-support/register  tests/*-test.js",
+    "test:types": "dtslint type-tests",
     "test:js:debug": "mocha --require source-map-support/register  debug tests/*-test.js"
+  },
+  "volta": {
+    "node": "10.19.0",
+    "yarn": "1.22.0"
   }
 }

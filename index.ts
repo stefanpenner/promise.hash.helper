@@ -83,8 +83,8 @@ type Fulfilled<T> = T extends Promise<infer R> ? R : T;
 
   @method hash
   @public
-  @param {Object} object
-  @return {Promise} promise that is fulfilled when all properties of `promises`
+  @param object
+  @return promise that is fulfilled when all properties of `promises`
   have been fulfilled, or rejected if any of them become rejected.
 */
 export = async function hash<T extends object>(object: T) {

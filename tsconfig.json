@@ -6,9 +6,12 @@
     "module": "commonjs",
     "sourceMap": true,
     "target": "es2018",
+    "types": ["node"],
+    "lib": ["ES2018"],
     "baseUrl": ".",
     "paths": {
       "*": ["types/*"]
     }
-  }
+  },
+  "include": ["index.ts"]
 }
