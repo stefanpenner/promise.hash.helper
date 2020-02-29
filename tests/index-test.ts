@@ -30,6 +30,7 @@ describe('hash', function() {
       first: FIRST_VALUE,
       second: SECOND_VALUE,
     })
+    expect(Object.keys(values)).to.eql(['first', 'second']);
   });
 
   it('rejected as soon as a promise is rejected', async function() {
@@ -64,6 +65,8 @@ describe('hash', function() {
 
     expect(results).to.eql({});
     expect(results).to.not.equal(INPUT);
+
+    expect(Object.keys(results)).to.eql([]);
   });
 
   it('works with promise hash', async function() {
@@ -78,6 +81,7 @@ describe('hash', function() {
     const results = await hash({foo: null})
 
     expect(results).to.eql({ foo: null });
+    expect(Object.keys(results)).to.eql(['foo']);
   });
 
   it('works with a truthy value', async function() {
@@ -115,12 +119,32 @@ describe('hash', function() {
       asyncThenable: 3,
       nonPromise: 4,
     });
+    expect(Object.keys(results)).to.eql(['promise', 'syncThenable', 'asyncThenable', 'nonPromise'])
   });
 
   it('works with an object that does not inherit from Object.prototype', async function() {
     const object = Object.create(null)
     object.someValue = Promise.resolve('hello')
+    object.someOther = Promise.resolve('World')
     const results = await hash(object);
-    expect(results).to.eql({ someValue: 'hello' });
+    expect(results).to.eql({ someValue: 'hello', someOther: 'World' });
+    expect(Object.keys(results)).to.eql(['someValue', 'someOther'])
+  });
+
+  it('preserves key order', async function() {
+    let firstResolver: Function = () => {};
+    let secondResolver: Function = () => {};
+    let thirdResolver: Function = () => {};
+    const object = { } as any;
+    object.first  = new Promise(resolve => firstResolver = resolve);
+    object.second = new Promise(resolve =>  secondResolver = resolve);
+    object.third = new Promise(resolve =>   thirdResolver = resolve);
+
+    setTimeout(() => secondResolver() , 300);
+    setTimeout(() => thirdResolver() , 100);
+    setTimeout(() => firstResolver() , 200);
+
+    const result = await hash(object);
+    expect(Object.keys(result)).to.eql(['first', 'second','third'])
   });
 });
