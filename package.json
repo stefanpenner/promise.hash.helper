@@ -33,7 +33,7 @@
     "test:js:debug": "mocha --require source-map-support/register  debug tests/*-test.js"
   },
   "volta": {
-    "node": "10.19.0",
-    "yarn": "1.22.0"
+    "node": "12.16.1",
+    "yarn": "1.22.4"
   }
 }
