@@ -13,6 +13,10 @@
     "source-map-support": "^0.5.16",
     "typescript": "^3.8.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanpenner/promise.hash.helper.git"
+  },
   "files": [
     "index.d.ts",
     "index.js",
